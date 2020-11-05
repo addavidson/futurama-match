@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99356986-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-99356986-3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Futurama Matching Game</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/favicons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+  </head>
+  <body>
+    <img src="assets/images/game-logo.png" class="logo">
+    <h1 class="page-title">Matching Game</h1>
+    <div class="overlay-text visible">
+      Start Game
+      <span class="overlay-text-small">Click Anywhere to Begin</span>
+    </div>
+    <div id="game-over-text" class="overlay-text">
+      Game Over
+      <span class="overlay-text-small">Click to Restart</span>
+    </div>
+    <div id="win-text" class="overlay-text">
+      You Win!
+      <span class="overlay-text-small">Click to Restart</span>
+    </div>
+    <div class="game-container">
+      <div class="game-info-container">
+        <div class="game-info">Time <span id="time-remaining">60</span></div>
+        <button class="end-game-btn" id="end-game-btn">End Game</button>
+      </div>
+      <div class="game-info-container">
+        <div class="game-info">Matches <span id="card-matches">0</span></div>
+        <div class="game-info">Turns <span id="turns">0</span></div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/bender-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/bender-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/fry-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/fry-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/leela-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/leela-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/farnsworth-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/farnsworth-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/zoidberg-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/zoidberg-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/amy-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/amy-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/hermes-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/hermes-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/nibbler-card.jpg" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img
+            class="back-pattern"
+            src="assets/images/matchgame-card-back.jpg"
+          />
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/images/nibbler-card.jpg" />
+        </div>
+      </div>
+    </div>
+    <script src="scripts.js" async></script>
+  </body>
+</html>

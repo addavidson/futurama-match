@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(#03496b, #051a2a);
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 50%;
+}
+
+.page-title {
+    color: #13d2d5;
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.9);
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.game-info-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info {
+    font-family: 'Bebas Neue', cursive;
+    color: #edd144;
+    font-size: 4em;
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.9);
+}
+
+.end-game-btn {
+    font-size: 3.5em;
+    font-family: 'Bebas Neue', cursive;
+    background-image: linear-gradient(#7d1a15, #e63323);
+    color: #edd144;
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.9);
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.card {
+    height: 175px;
+    width: 125px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    transition: transform 500ms ease-in-out;
+}
+
+.card.visible .card-back {
+    transform: rotateY(-180deg);
+}
+
+.card.visible .card-front {
+    transform: rotateY(0);
+}
+
+.card.matched .card-value {
+    animation: dance 1s linear infinite 500ms;
+}
+
+.overlay-text {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.overlay-text-small {
+    font-size: 0.3em;
+}
+
+
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.9);
+        font-size: 10em;
+    }
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+.card-back {
+    background-color: black;
+    border-color: white;
+}
+
+.card-front {
+    background-color: white;
+    border-color: white;
+    transform: rotateY(180deg);
+}
+
+.card-value {
+    transform: scale(0.95);
+    transition: transform 100ms ease-in-out;
+    border-radius: 5px;
+}
+
+.card-front:hover .card-value {
+    transform: scale(1);
+    border-radius: 5px;
+}
+
+@media (min-width: 320px) {
+    .game-container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .game-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .game-container {
+        grid-template-columns: repeat(4, auto);
+    }
+    .game-info-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1440px) {
+    .game-container {
+        grid-template-columns: repeat(8, auto);
+    }
+}
